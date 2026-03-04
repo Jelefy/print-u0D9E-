@@ -2,17 +2,20 @@
 
 \section{Intervals}
 	\kactlimport{IntervalContainer.h}
-	\kactlimport{IntervalCover.h}
+	% \kactlimport{IntervalCover.h}
 	\kactlimport{ConstantIntervals.h}
+	\kactlimport{FloorCeilIntervals.h}
 
 \section{Misc. algorithms}
 	\kactlimport{TernarySearch.h}
-	\kactlimport{LIS.h}
+	% \kactlimport{LIS.h}
 	\kactlimport{FastKnapsack.h}
+	\kactlimport{hilbert.cpp}
 
 \section{Dynamic programming}
 	\kactlimport{KnuthDP.h}
-	\kactlimport{DivideAndConquerDP.h}
+	\kactlimport{DecisionMonotonicityDP.h}
+	% \kactlimport{DivideAndConquerDP.h}
 
 \section{Debugging tricks}
 	\begin{itemize}
@@ -23,7 +26,7 @@
 	\end{itemize}
 
 \section{Optimization tricks}
-	\verb@__builtin_ia32_ldmxcsr(40896);@ disables denormals (which make floats 20x slower near their minimum value).
+	\verb@__builtin_ia32_ldmxcsr(40896);@ disables denormals (which make floats 20x slower near their minimum value).\\
 	\subsection{Bit hacks}
 		\begin{itemize}
 			\item \verb@x & -x@ is the least bit in \texttt{x}.

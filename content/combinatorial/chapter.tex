@@ -35,7 +35,8 @@
 		\end{center}
 
 	\subsection{Lucas' Theorem}
-		Let $n,m$ be non-negative integers and $p$ a prime. Write $n=n_kp^k+...+n_1p+n_0$ and $m=m_kp^k+...+m_1p+m_0$. Then $\binom{n}{m} \equiv \prod_{i=0}^k\binom{n_i}{m_i} \pmod{p}$.
+		Let $n,m$ be non-negative integers and $p$ a prime. Write $n=n_kp^k+...+n_1p+n_0$ and $m=m_kp^k+...+m_1p+m_0$. Then $\binom{n}{m} \equiv \prod_{i=0}^k\binom{n_i}{m_i} \pmod{p}$. Formula:\\
+		lucas($n$, $m$) = $m$ ? C($n$\%$p$, $m$\%$p$)*lucas($n$/$p$, $m$/$p$)\%$p$ : 1
 
 	\subsection{Binomials}
 		\kactlimport{multinomial.h}
@@ -85,7 +86,7 @@
 	\subsection{Labeled unrooted trees}
 		\# on $n$ vertices: $n^{n-2}$ \\
 		\# on $k$ existing trees of size $n_i$: $n_1n_2\cdots n_k n^{k-2}$ \\
-		\# with degrees $d_i$: $(n-2)! / ((d_1-1)! \cdots (d_n-1)!)$
+		\# with degrees $d_i$: $(n-2)! / ((d_1-1)! \cdots (d_n-1)!)$ \newline
 
 	\subsection{Catalan numbers}
 		\[ C_n=\frac{1}{n+1}\binom{2n}{n}= \binom{2n}{n}-\binom{2n}{n+1} = \frac{(2n)!}{(n+1)!n!} \]

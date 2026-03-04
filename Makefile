@@ -1,9 +1,10 @@
 LATEXCMD = pdflatex -shell-escape -output-directory build/
+MAINFILE = kactl.tex
 export TEXINPUTS=.:content/tex/:
 export max_print_line = 1048576
 
 help:
-	@echo "This makefile builds KACTL (KTH Algorithm Competition Template Library)"
+	@echo "This makefile builds KACTL of team print(\"\u0D9E\")"
 	@echo ""
 	@echo "Available commands are:"
 	@echo "	make fast		- to build KACTL, quickly (only runs LaTeX once)"
@@ -18,11 +19,11 @@ help:
 	@echo "For more information see the file 'doc/README'"
 
 fast: | build
-	$(LATEXCMD) content/kactl.tex </dev/null
+	$(LATEXCMD) $(MAINFILE) </dev/null
 	cp build/kactl.pdf kactl.pdf
 
 kactl: test-session.pdf | build
-	$(LATEXCMD) content/kactl.tex && $(LATEXCMD) content/kactl.tex
+	$(LATEXCMD) $(MAINFILE) && $(LATEXCMD) $(MAINFILE)
 	cp build/kactl.pdf kactl.pdf
 
 clean:

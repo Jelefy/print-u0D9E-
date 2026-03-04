@@ -1,15 +1,19 @@
 /**
- * Author: Unknown
- * Date: 2002-09-15
- * Source: predates tinyKACTL
- * Description: Finds two integers $x$ and $y$, such that $ax+by=\gcd(a,b)$. If
- * you just need gcd, use the built in \texttt{\_\_gcd} instead.
- * If $a$ and $b$ are coprime, then $x$ is the inverse of $a \pmod{b}$.
+ * Author: Jelefy
+ * Date: 2025-12-21
+ * Source: augmented based on kactl
+ * Description: Finds two integers $x$ and $y$, such that $ax+by=\gcd(a,b)$.
+ * Ensure that $a$, $b$, $n$, and $p$ are positive and {\tt type} is a signed integer type.
  */
 #pragma once
 
-ll euclid(ll a, ll b, ll &x, ll &y) {
+template<class type> // results satisfy |x| <= b, |y| <= a
+type euclid(type a, type b, type &x, type &y) {
 	if (!b) return x = 1, y = 0, a;
-	ll d = euclid(b, a % b, y, x);
-	return y -= a/b * x, d;
+	type d = euclid(b, a % b, y, x); return y -= a / b * x, d;
+}
+template<class type>
+type getinv(type n, type p) {
+	type x = 0, y = 0; if (euclid(n, p, x, y) != 1) return -1;
+	return x < 0 ? x + p : x;
 }
